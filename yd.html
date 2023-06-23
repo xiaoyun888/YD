@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>二次元萌王引导页</title>
+      <!-- 引入Bootstrap样式 -->
+      <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+      <!-- 引入Particles.js库 -->
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <!-- 自定义样式 -->
+      <style>
+         /* 全局样式 */
+         * {
+         box-sizing: border-box;
+         }
+         /* 背景 */
+         body {
+         background-color: #262626;
+         }
+         #particles-js {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: -1;
+         }
+         /* 标题 */
+         h1 {
+         color: #fff;
+         text-transform: uppercase;
+         letter-spacing: 2px;
+         font-size: 3.5rem;
+         margin-top: 8rem;
+         margin-bottom: 3rem;
+         }
+         /* 按钮 */
+         .btn-wrapper {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 75%;
+         flex-direction: column;
+         }
+         .btn {
+         background-color: transparent !important;
+         color: #fff !important;
+         border: 2px solid #fff !important;
+         padding: 0.5rem 1.5rem !important;
+         border-radius: 50px !important;
+         text-transform: uppercase;
+         letter-spacing: 2px;
+         font-size: 1.5rem;
+         margin: 1rem;
+         transition: all 0.3s ease;
+         width: 80%; /* 更改按钮宽度 */
+         }
+         .btn:hover {
+         background-color: #fff !important;
+         color: #000 !important;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- 背景粒子特效 -->
+      <div id="particles-js"></div>
+      <script>
+         particlesJS("particles-js", {
+           "particles": {
+             "number": {
+               "value": 80,
+               "density": {
+                 "enable": true,
+                 "value_area": 800
+               }
+             },
+             "color": {
+               "value": "#ffffff"
+             },
+             "shape": {
+               "type": "circle",
+               "stroke": {
+                 "width": 0,
+                 "color": "#000000"
+               },
+               "polygon": {
+                 "nb_sides": 5
+               },
+               
+             },
+             "opacity": {
+               "value": 0.5,
+               "random": false,
+               "anim": {
+                 "enable": false,
+                 "speed": 1,
+                 "opacity_min": 0.1,
+                 "sync": false
+               }
+             },
+             "size": {
+               "value": 3.5,
+               "random": true,
+               "anim": {
+                 "enable": false,
+                 "speed": 10,
+                 "size_min": 0.1,
+                 "sync": false
+               }
+             },
+             "line_linked": {
+               "enable": true,
+               "distance": 150,
+               "color": "#ffffff",
+               "opacity": 0.4,
+               "width": 1
+             },
+             "move": {
+               "enable": true,
+               "speed": 4,
+               "direction": "none",
+               "random": false,
+               "straight": false,
+               "out_mode": "out",
+               "bounce": false,
+               "attract": {
+                 "enable": false,
+                 "rotateX": 600,
+                 "rotateY": 1200
+               }
+             }
+           },
+           "interactivity": {
+             "detect_on": "canvas",
+             "events": {
+               "onhover": {
+                 "enable": true,
+                 "mode": "grab"
+               },
+               "onclick": {
+                 "enable": true,
+                 "mode": "push"
+               },
+               "resize": true
+             },
+             "modes": {
+               "grab": {
+                 "distance": 140,
+                 "line_linked": {
+                   "opacity": 1
+                 }
+               },
+               "bubble": {
+                 "distance": 400,
+                 "size": 40,
+                 "duration": 2,
+                 "opacity": 8,
+                 "speed": 3
+               },
+               "repulse": {
+                 "distance": 200,
+                 "duration": 0.4
+               },
+               "push": {
+                 "particles_nb": 4
+               },
+               "remove": {
+                 "particles_nb": 2
+               }
+             }
+           },
+           "retina_detect": true
+         });
+      </script>
+      <!-- 引导页内容 -->
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <h1>二次元萌王</h1>
+            </div>
+            <div class="col-md-12">
+               <div class="btn-wrapper">
+                  <!-- 定义三个变量，用于存储链接 -->
+                  <?php
+                     $link1 = "https://www.acfun.cn/";
+                     $link2 = "https://www.bilibili.com/";
+                     $link3 = "https://mikanani.me/";
+                     $apiUrl = "https://tuapi.eees.cc/api.php?category=dongman&type=302";
+                  ?>
+                  <a href="<?php echo $link1; ?>" class="btn" target="_blank">AcFun</a>
+                  <a href="<?php echo $link2; ?>" class="btn" target="_blank">哔哩哔哩</a>
+                  <a href="<?php echo $link3; ?>" class="btn" target="_blank">蜜柑计划</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- 引入jQuery库和自定义脚本，用于更换壁纸 -->
+      <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script>
+         $(document).ready(function() {
+             changeWallpaper(); 
+         });
+         
+         function changeWallpaper() {
+             var apiUrl = "<?php echo $apiUrl; ?>"; // 引用定义好的api链接
+             var postData = {
+                 "lx": "manhua",
+                 "url": "https://wallhaven.cc/api/v1/search?sorting=random&seed=" + Math.floor(Math.random() * 1000) + "&q=anime"
+             }
+             $.ajax({
+                 type: "POST",
+                 url: apiUrl,
+                 data: postData,
+                 success: function(data) {
+                     $('body').css('background-image', 'url(' + data.data.url + ')');
+                 }, 
+                 dataType: "json",
+             });
+         }
+      </script>
+   </body>
+</html>
